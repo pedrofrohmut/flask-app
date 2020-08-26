@@ -1,0 +1,45 @@
+{% extends "/base.html" %}
+
+{% block title %} Jinja {% endblock %}
+
+{% block body %}
+  <h1 style="color: darkviolet;">Jinja Page</h1>
+  <h3>Hi, my name is {{  name  }}. I'm {{ age }} old.</h3>
+  <p>This is the jinja paragraph</p>
+  <ul>
+    {% for lang in languages %}
+      <li>{{ loop.index }} - {{ lang }}</li>
+    {% endfor %}
+  </ul>
+  <ul>
+    {% for k, v in friends.items() %}
+      <li>{{ k }}: {{ v }}</li>
+    {% endfor %}
+  </ul>
+  <p>First language: {{ languages[0] }}</p>
+  <p>Friend named "Tom": {{ friends["Tom"] }}</p>
+  {% set a, b, c = colors %}
+  <p>Color 1: {{ a }}</p>
+  <p>Color 2: {{ b }}</p>
+  <p>Color 3: {{ c }}</p>
+  <p>{{  repeat("Python is awesome!")  }}</p>
+  <h5>It's cool?</h5>
+  <p>
+    {% if cool %}
+      Yes
+    {% else %}
+      No 
+    {% endif %}
+  </p>
+  <h5>Are you old enough?</h5>
+  <p>
+    {% if age < 18 %}
+      No. I'm underage
+    {% endif %}
+    {% if not age < 18 %}
+      Yes. I'm old enough
+    {% endif %}
+  </p>
+  <h5>How much is 47 + 263?</h5>
+  <p>{{ 47 + 263 }}</p>
+{% endblock %}
